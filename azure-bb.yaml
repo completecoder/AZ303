@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: bulletin
-        image: <containername>/bulletin:v1
+        image: <containername>.azurecr.io/bulletin:v1
         ports:
         - containerPort: 80
         resources:
