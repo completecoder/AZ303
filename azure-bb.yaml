@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bulletin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+        app: bb
+  template:
+    metadata:
+      labels:
+        app: bb
+    spec:
+      containers:
+      - name: bulletin
+        image: completecodercontainers/bb:v1
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 255m
+          limits:
+            cpu: 500m
+        env:
+        - name: REDIS
+          value: "bulletin"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bulletin
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: bb
