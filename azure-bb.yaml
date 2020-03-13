@@ -6,15 +6,15 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-        app: bb
+        app: bulletin
   template:
     metadata:
       labels:
-        app: bb
+        app: bulletin
     spec:
       containers:
       - name: bulletin
-        image: completecodercontainers/bb:v1
+        image: <containername>/bulletin:v1
         ports:
         - containerPort: 80
         resources:
@@ -35,4 +35,4 @@ spec:
   ports:
   - port: 80
   selector:
-    app: bb
+    app: bulletin
