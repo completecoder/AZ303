@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: bulletin
-        image: <containername>.azurecr.io/bulletin:v1
+        image: cloudguru.azurecr.io/bulletin:v1
         ports:
         - containerPort: 8080
         resources:
@@ -22,9 +22,6 @@ spec:
             cpu: 255m
           limits:
             cpu: 500m
-        env:
-        - name: REDIS
-          value: "bulletin"
 ---
 apiVersion: v1
 kind: Service
